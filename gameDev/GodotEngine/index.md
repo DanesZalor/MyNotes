@@ -24,3 +24,50 @@ run the godot **project list** by going to the directory of the godot binary and
 to open a godot project immediately, the binary recieves an arguement which is the path to a `project.godot` file which is inside your godot project folders
 
 `$ ./godot-bin.x86_64 path/to/project.godot`
+
+---
+## Signals
+
+`Godot.Object.Signal(string signal, Object target, string method)`
+
+the Object will call target.method when Object.signal is emitted. For example:
+
+```C#
+public override void _Ready(){
+    timer = GetNode<Timer>("Path/To/Timer");
+    timer.Connect("timeout", this, "timerTimedOut");
+}
+
+public void timerTimedOut(){
+    // code here will be executed 
+    // when timer emmits "timeout" signal
+}
+```
+
+## yield()
+<sup><sub>**tags**: yield, delay, async, wait</sub></sup> 
+
+to make a delay in GDScript:
+
+```Python
+# execute code here
+
+yield(get_tree().create_timer(0.5f), "timeout" )
+
+# code here will be executed 0.5 seconds later
+```
+
+
+in C#, it is much more complex since making a delay requires an **async** call.
+
+```C#
+// execute code here
+
+async void functionName(){
+    await ToSignal( GetTree().CreateTimer(0.5f), "timeout" );
+    
+    // code here will be executed 0.5 seconds later
+}
+
+// code here will be executed immediately
+```
