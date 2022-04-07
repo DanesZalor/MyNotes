@@ -26,6 +26,43 @@ to open a godot project immediately, the binary recieves an arguement which is t
 `$ ./godot-bin.x86_64 path/to/project.godot`
 
 ---
+
+## Scene Tree
+
+Say we have this scene tree
+```
+|- Root
+|   |- Node1
+|   |   |- Node1.1
+|   |   |- Node1.2
+|   |- Node2
+|   |   |- Node2.1
+```
+
+Godot traverses the tree in different manners depending on whether it is calling `_EnterTree()`, `_Ready()`, and `_Process(delta)`
+
+Here is my experiment:
+
+|Setup|
+|-|
+|![Scene Tree](./.imgs/GodotTreeTraversal_Experiment.png)|
+|![_Ready()](./.imgs/GodotTreeTraversal_Experiment_Code.png)|
+
+And here is the output:
+```bash
+Node1_1 readying
+Node1_2 readying
+Node1 readying
+Node2_1 readying
+Node2 readying
+Root readying
+```
+
+> NOTE: i used *Console.WriteLine()* instead of *GD.Print()* to see if the calls are asynchronous. They were sequential, in fact there is a delay between them due to my for loop.
+
+For more information, check out [Godot Recipes - Understanding tree order](https://kidscancode.org/godot_recipes/basics/tree_ready_order/)
+
+
 ## Signals
 
 `Godot.Object.Signal(string signal, Object target, string method)`
