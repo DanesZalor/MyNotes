@@ -43,7 +43,7 @@ To find the angle of two vectors:
 2. get the [dot product](#vector-dot-product) of the two vectors
 3. $cos^{-1}$ the result
 
-$θ = cos^{-1}(\hat{a} • \hat{b})$
+basically: $θ = cos^{-1}(\hat{a} • \hat{b})$
 
 
 
