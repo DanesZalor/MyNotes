@@ -1,3 +1,5 @@
+# Vectors
+
 ## Vector Length
 ![](.imgs/vector-length.png)
 
@@ -46,4 +48,9 @@ To find the angle of two vectors:
 basically: $θ = cos^{-1}(\hat{a} • \hat{b})$
 
 
+## Vector Rotation
 
+$x' = x cos θ − y sin θ$<br>
+$y' = x sin θ + y cos θ$
+
+For more info, check out this [explanation](https://stackoverflow.com/questions/14607640/rotating-a-vector-in-3d-space).
