@@ -10,6 +10,7 @@ Say we have vector $\vec{a} = (x,y)$. That vector can be represented as a triang
 
 The hypotenuse is the length of $(x,y)$ which can be solved using the Pythagorean theorem $c =\sqrt{ a^2 + b^2 }$
 
+$c = a$
 
 ## Vector Normalization
 
