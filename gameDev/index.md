@@ -15,3 +15,7 @@ For the editor, use [Code - OSS](https://github.com/microsoft/vscode), [VSCode](
     for previewing markdown side by side. <sup><sub>(Press Ctrl+Shift+V)</sub></sup>
 - **Markdown Math** <sub><sup>(preinstalled, just enable it)</sup></sub> to view Mathematic equations in the markdown preview 
 - **[Git](https://wiki.archlinux.org/title/git)** for version control system to back it up and push to an online remote like Github.
+
+## References
+- [Github markdown syntax](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
+- [Markdown Math Syntax](https://csrgxtu.github.io/2015/03/20/Writing-Mathematic-Fomulars-in-Markdown/)
