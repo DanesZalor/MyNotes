@@ -62,12 +62,9 @@ edit `Pages/Index.cshtml` and replace the contents of the `<div>` tag withL
 now if we refresh the browser we'll see:
 ![Hello world in browser](.imgs/browsersc2.png)
 
-# ASP.NET Core MVC Web App
+# ASP.NET Core Tutorials
 
-**References**
-- [Create a ASP.Net Core MVC Web Application using **Visual Studio Code**](https://www.youtube.com/watch?v=HY7tD9IPfac)
-- [With Identity](https://www.youtube.com/watch?v=JBvKjGjDOEk)
-- [Using **SQLite** with Entity Framework Core](https://www.youtube.com/watch?v=hLe7e6ll0ec)
-- [Adding Role based security](https://www.youtube.com/watch?v=9Aq09vM89_Q)
-
-<sub><sup> Tutorials are in 2019 so might not work. just try it out</sup></sub>
+**Official docs**
+- [Microsoft - Get started with Razor Pages in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/tutorials/razor-pages/razor-pages-start?view=aspnetcore-6.0&tabs=visual-studio)
+- [Microsoft - Get started with ASP.NET Core MVC](https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-mvc-app/start-mvc?WT.mc_id=dotnet-35129-website&view=aspnetcore-6.0&tabs=visual-studio-code)
+- [Microsoft - Create a web API with ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-web-api?tabs=visual-studio-code&WT.mc_id=dotnet-35129-website&view=aspnetcore-6.0)
