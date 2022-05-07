@@ -102,3 +102,97 @@ You can store information in the `$_SESSION` superglobal. It can be used accross
 |If we click the *HOME* hyperlink, it redirects us to<br>`basepage.php`. Since it's not a POST request,<br> the `$_SESSION` data is not reassigned and the page<br> displays the same information.|![sessionTestBasePage2](.imgs/phpSessionTest-basepage.png)|
 
 > Resource: [w3schools](https://www.w3schools.com/php/php_sessions.asp)
+
+## Cookies
+Cookies are often used to indentify the user. It is a small file that the server embeds on the user's computer. Each time the same computer requests a page through a browser, it will send the cookie too.
+
+```php
+setcookie(name, value, expire, path, domain, secure, httponly);
+```
+
+|variable||
+|-|-|
+|name|specifies cookie's name|
+|value|specifies cookie's value|
+|expire|specifies (in seconds) when the cookie expires.<br>`time() + seconds`<br>`time() + 86400 + days`|
+|path|specifies server path of cookie.<br> If set to `/` the cookie will be avaialable within the entire domain.<br> if set to `/php/`, the cookie will only be available within the `php/` directory and all sub-directories of it.|
+|domain|specifies cookie's domain name. To make the cookie available on all subdomains of *example.com*, set the domain to `example.com`|
+|secure|specifies whether or not the cookie should only be transmitted over secure HTTPS connection.|
+|httponly|if set to TRUE, cookie will be accessible only through HTTP protocol.|
+
+> **name** parameter is the only one required.
+
+
+Example
+```php
+<?php
+$value = "John";
+setcookie("user", $value, time() * (86400 * 30), '/' );
+
+if(isset($_COOKIE['user'])){
+  echo "Value is: ". $_COOKIE['user'];
+}
+// outputs "Value is: John";
+?>
+```
+> `setcookie()` must appear BEFORE the `<html>` tag.<br>**Never** store sensitive information in cookies.
+
+## Manipulating Files
+`fopen(filename, mode)`
+
+|modes||
+|-|-|
+|r|opens file for read only|
+|w|opens file for write only.<br> Erases the contents of the file or creates a new file if it doesn't exist|
+|a|opens file write only|
+|x|creates a new file for write only|
+|r+|opens a file for read/write|
+|w+|opens a file for read/write.<br>Erases the contents of the file or creates a new file if it doesn't exist|
+|a+|opens file for read/write. Creates new file if the file doesn't exst|
+|x+|creates a new file for read/write|
+
+#### Example - writing to a file
+```php
+<?php
+  $myfile = fopen("names.txt", "w");
+  $txt = "John\n";
+  fwrite($myfile, $txt);
+  $txt = "David\n";
+  fwrite($myfile, $txt);
+  fclose($myfile);
+?>
+```
+
+> makes a file called `names.txt` with the context `"John\nDavid\n"`;
+
+#### Example reading a file
+`file(filename)` returns the contents of a file in an array where each line is an element
+```html
+<html>
+<head>
+    <title>Test-html</title>
+</head>
+<body>
+    <h1> this is a test </h1>
+    <p> among many other things</p>
+</body>
+</html>
+```
+
+```php
+$myfile = file('test.html');
+foreach( $myfile as $line) 
+  echo $line;
+```
+> you can use `count()` method on the array to count the strings
+
+> **Output**<br>![file read res](.imgs/filereadtest.png)
+
+#### Example - appending to a file
+```php
+$myFile = "test.txt";
+$fh = fopen($myFile, 'a');
+fwrite($fh, "Some text");
+fclose($fh);
+```
+> this will append `"Some text"` in `test.txt`
