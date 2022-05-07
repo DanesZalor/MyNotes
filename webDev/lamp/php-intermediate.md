@@ -284,3 +284,24 @@ class Demo implements AInterface, BInterface, CInterface {
   // Functions declared in interfaces must be defined here
 }
 ```
+
+## Abstract Class
+```php
+abstract class Animal{
+    protected $name;
+
+    public function __construct($name){
+        $this->name = $name;
+    }
+    abstract public function makeSound();
+}
+
+class Dog extends Animal{
+    public function makeSound(){
+        echo "bark";
+    }
+    public function howl(){
+        echo "awoooo >:(";
+    }
+}
+```
