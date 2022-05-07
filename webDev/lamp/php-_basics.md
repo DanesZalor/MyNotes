@@ -371,3 +371,4 @@ function mul($n1, $n2){
 echo mul(2,4); // outputs 8
 ```
 > Leaving out the **return** statements results in a **NULL** value being returned.
+
