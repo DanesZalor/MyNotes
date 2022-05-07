@@ -87,7 +87,8 @@ class Demo implements AInterface, BInterface, CInterface {
 }
 ```
 
-## Abstract Class
+## Abstraction
+Abstract classes cannot be instantiated. Abstract functions must be implemented by the inheritor. Otherwise error. 
 ```php
 abstract class Animal{
     protected $name;
@@ -107,3 +108,43 @@ class Dog extends Animal{
     }
 }
 ```
+## Static
+**static** members are not owned by instantiations
+```php
+class myClass{
+    static $myProperty = 42;
+
+    static function myMethod(){
+        echo "myProperty:".self::$myProperty;
+    }
+}
+
+echo myClass::myMethod();
+echo myClass::$myProperty;
+// outputs: myProperty:4242 
+```
+
+## Final
+```php
+class myClass{
+    final function myFunc(){
+        echo "a";
+    }
+}
+
+class myClass2 extends myClass{
+    function myFunc(){
+        // error
+    }
+}
+```
+> **ERROR**: Cannot override final method myClass::myFunc()
+
+```php
+final class myClass{
+}
+
+class myClass2 extends myClass{
+}   
+```
+> **ERROR**: Class myClass2 cannot extend final class myClass
