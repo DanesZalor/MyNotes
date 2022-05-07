@@ -37,6 +37,7 @@ Using the same example above, but changing the method to **GET**
 > GET should **NEVER** be used for sending sensitive information
 
 ## $_SESSION
+
 You can store information in the `$_SESSION` superglobal. It can be used accross multiple pages. Information is stored in the server. By default, session variables last until the user closes the browser. Let's say we have these files:
 
 **index.php**
@@ -46,17 +47,11 @@ You can store information in the `$_SESSION` superglobal. It can be used accross
   <title>WebsiteName - Login</title>
 </head>
 <body>
-    <form action="basepage.php" method="post">
-        <p>
-            NAME: <input type="text" name="name">
-        </p>
-        <p>
-            AGE: <input type="text" name="age">
-        </p>
-        <p>
-            <input type="submit" name="submit" value="Submit"/>
-        </p>
-    </form>
+  <form action="basepage.php" method="post">
+    <p>NAME: <input type="text" name="name"></p>
+    <p>AGE: <input type="text" name="age"></p>
+    <p><input type="submit" name="submit" value="Submit"/></p>
+  </form>
 </body>
 </html>
 ```
@@ -105,3 +100,5 @@ You can store information in the `$_SESSION` superglobal. It can be used accross
 |When we submit the form, `basepage.php` is loaded<br>with an http POST request. The session is started and<br> since a POST request is sent, the `$_SESSION` variables<br> are set equal to the `$_POST` variable counterpart. |![sessionTestBasePage](.imgs/phpSessionTest-basepage.png)|
 |if we click the *Profile* hyperlink, it redirects us to<br>`profile.php`.The session is started so the<br> `$_SESSION` data is loaded.|![sessionTestProfilePage](.imgs/phpSessionTest-profilepage.png)|
 |If we click the *HOME* hyperlink, it redirects us to<br>`basepage.php`. Since it's not a POST request,<br> the `$_SESSION` data is not reassigned and the page<br> displays the same information.|![sessionTestBasePage2](.imgs/phpSessionTest-basepage.png)|
+
+> Resource: [w3schools](https://www.w3schools.com/php/php_sessions.asp)
