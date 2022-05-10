@@ -5,6 +5,7 @@
 - [Php in 15 minutes](https://www.youtube.com/watch?v=ZdP0KM49IVk)
 - [Php playlist](https://www.youtube.com/playlist?list=PL0eyrZgxdwhwBToawjm9faF1ixePexft-)
 - Sololearn - PHP
+- [PHP Manual](https://www.php.net/docs.php)
 
 ### Server
 php can host a server on it's own without apache or whatever
