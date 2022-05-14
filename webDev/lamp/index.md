@@ -79,3 +79,5 @@ run the following command **before** starting the `mariadb.service`
  extension=pdo_mysql
  extension=mysqli
  ```
+
+ > or you can use postgresql
