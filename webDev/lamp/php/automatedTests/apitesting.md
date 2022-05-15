@@ -18,6 +18,24 @@ Install **phpunit/phpunit** for automated testing and **guzzlehttp/guzzle** for 
 ~/proj/dir$ composer require --dev guzzlehttp/guzzle
 ```
 
+### Running the Tests
+
+```shell
+~/proj/dir$ ./vendor/bin/phpunit testsFolder/
+```
+
+##### Alternatively
+Set up this composer script:
+```json
+"scripts": {
+    "test": "./vendor/bin/phpunit testsFolder/"
+}
+```
+and run
+```shell
+~/proj/dir$ composer test
+```
+
 ## Writing TestCases
 We will create a php clas file than extends `PHPUnit\Framework\TestCase`
 
