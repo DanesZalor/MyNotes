@@ -47,3 +47,17 @@ So it is recommended that after fetching new changes from your VCS repository, i
 
 ### updating dependencies to their latest versions
 `composer.lock` prevents you from automatically getting dependency updates. Using the `update` command will fetch the latest **matching** versions (according to `composer.json`)
+
+
+## Scripts
+Use the `scripts` key to make project-local aliases 
+```json
+"scripts": {
+    "test": "./vendor/bin/phpunit tests/"
+}
+```
+
+You can then use the script by:
+```shell
+~/proj/dir$ composer test
+```
