@@ -74,7 +74,7 @@ class AccountTest extends TestCase{
         ];
 
         // act
-        $response = $this->http->request('GET', 'api/accounts/');
+        $response = $this->http->request('GET', 'api/someResource/');
 
         $actualStatusCode = $response->getStatusCode();
         $actualContentType = $response->getHeaders()["Content-Type"][0];
