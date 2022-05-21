@@ -171,3 +171,74 @@ Math Object is a built in JavaScript class for mathematical tasks. It includes s
 |`Math.sin(x)`|returns the sine of x in radians|
 |`Math.sqrt(x)`|returns $\sqrt{x}$|
 |`Math.tan(x)`|returns the tangent of x in radians|
+
+## Date
+
+```javascript
+var d = new Date(); // current date-time
+
+// other ways to initialize date
+new Date(dateString);
+new Date(milliseconds);
+new Date(year, month, day, hours, minutes, seconds, milliseconds);
+```
+
+<br>
+
+# Document Object Model
+Represents the document as a tree structure. HTML elements become interrelated **nodes** in the tree.
+Nodes have **child** nodes. Nodes on the same tree level are called **siblings**
+![DOM](.imgs/domdiagram.png)
+> `<html>` has two children; `<head>` and `<body>`
+
+```javascript
+document.body.innerHTML = "<h1> yo </h1>";
+```
+outputs:<br>
+![sampleoutput](.imgs/sampleinnerhtml.png)
+
+
+## Selecting elements
+All HTML elements are **objects**. The **document** object has methods that allow you to select the desired HTML element. Example:
+```html
+<html>
+    <head>
+        <title>Titlepage</title>  
+    </head>
+    <body>
+        <h1 id="header1"> hello </h1>
+        <div id="div1">
+            <p class="prg">This is paragraph1</p>
+            <p class="prg">This is paragraph2</p>
+        </div>
+    </body>
+</html>
+```
+
+```javascript
+document.getElementById("div1");
+```
+> outputs: `<div id="div1">`
+
+```javascript
+document.getElementsByClassName("prg");
+```
+> outputs: `HTMLCollection { 0: p.prg, 1: p.prg, length: 2 }`
+
+```javascript
+document.getElementsByTagName("p");
+```
+> outputs: `HTMLCollection { 0: p.prg, 1: p.prg, length: 2 }`
+> `HTMLCollection` can be used **like an array**
+
+### DOM Element Properties
+Using the same example above;
+```javascript
+document.getElementById("div1").innerHTML;
+```
+> `"\n            <p class=\"prg\">This is paragraph1</p>\n            <p class=\"prg\">This is paragraph2</p>\n   `
+
+```javascript
+document.getElementById("div1").innerText;
+```
+> `"This is paragraph1\n\nThis is paragraph2"`
