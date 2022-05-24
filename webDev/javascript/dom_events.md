@@ -118,3 +118,50 @@ but if i set the 3rd parameter of **both** event listeners to **true**, then it 
 
 > The default event propagation is **bubbling**<br>
 > Set both propagation to be equal to prevent confusion.
+
+---
+## Exercise: Image Slider
+
+Image slider page with **prev** and **next** buttons.
+
+|![1](.imgs/ex-img-slider-res.png "output")|![2](.imgs/ex-img-slider-res2.png "next is pressed")|
+|-|-|
+|![3](.imgs/ex-img-slider-res3.png "next is pressed again")|![4](.imgs/ex-img-slider-res4.png "previous is pressed")|
+
+```html
+<div id="imageSlider" style="text-align:center">
+	<img id="imageViewer" src="asset/img1.png" 
+	width="100px" height="100px"/><br>
+	<button id="prev"> Prev </button>
+	<button id="next"> Next </button>
+</div>
+<script src="index.js"></script>
+```
+
+```javascript
+var imgObj = document.getElementById("imageViewer");
+var imgs = [
+    "asset/img1.png", "asset/img2.png", 
+	"asset/img3.png",
+];
+var img_idx = 0;
+
+function setImage(idx) {
+    img_idx = idx % imgs.length;
+    if (img_idx < 0) img_idx = imgs.length - 1;
+    imgObj.src = imgs[img_idx];
+}
+
+
+prevbtn = document.getElementById("prev");
+nextbtn = document.getElementById("next");
+
+prevbtn.addEventListener("click", function () {
+    setImage(img_idx - 1);
+})
+
+nextbtn.addEventListener("click", function () {
+    setImage(img_idx + 1);
+})
+```
+---
