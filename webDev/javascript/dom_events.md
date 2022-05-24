@@ -1,5 +1,5 @@
 
-## Events
+# Events
 |event|description|
 |-|-|
 |`onclick`|when element is clicked|
@@ -84,3 +84,37 @@ btn2.addEventListener("click", function () {
     btn1.removeEventListener("click", btn1_click)
 });
 ```
+
+## Event Propagation
+
+Event propagation allows for the definition of the element order when an event occurs. If you have this:
+```html
+<div>
+    <p></p>
+</div>
+```
+
+and the user  clicks on the `<p>` element, which element's "click" should be handled first?
+
+In **bubbling**, the innermost element's event is handled first, and then the outer elements.
+`<p>.onclick` is called, and then `<div>.onclick`
+
+In **capturing**, it's the opposite.
+`<div>.onclick` and then `<p>.onclick`.
+
+> Capturing goes **down** the DOM. <br>
+> Bubbling goes **up** the DOM.
+
+Say for example we have this code:
+![image](.imgs/eventpropa_code.png)
+If the innerbox is clicked, this happens:
+![image](.imgs/eventpropa_res.png)
+`innerbox.onclick` is called first, and then the `outerbox`
+
+but if i set the 3rd parameter of **both** event listeners to **true**, then it will show this result:
+
+![image](.imgs/eventpropa_res2.png)
+`outerbox.onclick` is called first before `innerbox.onclick`
+
+> The default event propagation is **bubbling**<br>
+> Set both propagation to be equal to prevent confusion.
