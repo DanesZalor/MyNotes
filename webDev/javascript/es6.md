@@ -1,0 +1,358 @@
+# ECMAScript
+**ECMAScript** (ES) is a scripting language specification created to standardize JavaScript.
+
+ES6 and later adds significant new syntax for writing complex applications, including classes and moodules, iterators and for/of loops, generators, arrow functions, binary data, typed arrays, collections (maps, sets and weak maps), promises, number and math enhancements, reflection and proxies.
+
+ES6 is a superset of JavaScript (ES5). The reason that ES6 became so popular is that it introduced new conventions and OOP concepts.
+
+## Variables
+in ES6, we have three ways of declaring variables:
+```javascript
+var a = 10;
+const b = 'hello';
+let c = true;
+```
+
+The type of declaration used depends on the necessary **scope**.
+
+### var <sub><sup>&</sup></sub> let
+
+**var** defines a variable globally, or locally to an entire function regardless of block scope.
+
+**let** allows you to declare variables that are limited in scope to the block, statement, or expressions they are used in.
+
+Example:
+```javascript
+if(true){
+    let name = 'jack';
+}
+console.log(name); //error
+```
+
+to demonstrate the difference:
+```javascript
+function varTest(){
+    var x = 1;
+    if(true){
+        var x = 2; // same var
+        console.log(x); // 2
+    }
+    console.log(x); // 2
+}
+
+function letTest(){
+    let x = 1;
+    if(true){
+        let x = 2;
+        console.log(x); // 2
+    }
+    console.log(x); // 1
+}
+```
+
+You can use **let** scope in loops:
+```javascript
+for(let i = 0; i<3; i++){
+    console.log(i);
+}
+```
+> the `i` variable is only accessible within the scope of the for loop, where it is only needed.
+
+### const
+**const** variables have the same scope as **let** variables except that const variables are **immutable** - they are not allowed to be reassigned.
+```javascript
+const a = 'hello';
+a = 'Bye'; // generates an exception
+```
+
+> note that ES6 code will run only in browsers that support it. 
+
+## Template Literals
+are a way to output variables in the string. Before ES6, we had to break the string like:
+```javascript
+let name = 'David';
+console.log('Welcome ' + name + '!');
+```
+
+You can use string templates in ES6 like:
+```javascript
+let name= 'David';
+console.log(`Welcome ${name}!`);
+```
+
+> NOTE that template literals are enclosed by the **backtick** (`) character.
+
+It can even handle expressions.
+
+```javascript
+let a = 8;
+let b = 10;
+console.log(`The sum of ${x} and ${y} is ${x+y}`);
+```
+
+> To escape a backtick in a template literal, put a backslash before it.
+
+## Loops in ES6
+in JS, we commonly use **for** loop to iterate over values in a list
+```javascript
+let arr = [1,2,3];
+for (let k = 0; k < arr.length; k++){
+    console.log(arr[k]);
+}
+```
+
+The **for...in** loop is intended for iterating over **enumerable** keys of an object like:
+```javascript
+let obj = {"name":"bob", "age":10};
+for(let v in obj){
+    console.log(v);
+}
+// outputs the keys
+
+for (let v in obj){
+  console.log(obj[v]);
+}
+// outputs the values
+```
+
+The **for...of** loop iterates over **iterable** objects.
+```javascript
+let list = ["bob", "bobba", "tea"];
+for(let val of list){
+    console.log(val);
+}
+```
+> output prints the elements in the list
+
+Remember that **strings are iterable**
+```javascript
+for(let ch of "Hello"){
+    console.log(ch);
+}
+``` 
+
+## Functions in ES6
+
+prior to ES6, we defined functions like this:
+```javascript
+function add(x,y){
+    var sum = x + y;
+    console.log(sum);
+}
+```
+
+ES6 introduces a new syntax for writing functions.
+```javascript
+const add = (x, y) => {
+    let sum = x + y;
+    console.log(sum);
+}
+```
+
+The new syntax is useful for when you just need a simple function with one arguement. no longer needing to type **function** and **return**. For example:
+```javascript
+const greet = x => `Welcome ${x}!`;
+```
+> has one arguement and returns a string
+
+If there are no parameters:
+```javascript
+const prompt = () => alert("Hi");
+```
+
+The syntax is very useful for inline functions. prior to ES5, we did this:
+
+```javascript
+var arr = [1,3,5,9];
+arr.forEach(function(x){
+    console.log(x);
+});
+```
+
+Now we do this:
+```javascript
+var arr = [1,3,5,9];
+arr.forEach(v => {
+    console.log(v);
+});
+```
+
+## Default parameters in ES6:
+
+in ES6, we can put the default values right in the signature of the functions.
+
+```javascript
+function test(a, b=3, c=42){
+    return a + b + c;
+}
+
+console.log(test(5)); // 50
+```
+
+and in arrow function notation:
+
+```javascript
+const test = (a, b = 3, c = 42) => {
+    return a + b + c;
+}
+
+console.log(test(5)); //50
+```
+
+## ES6 Objects
+JavaScript variables can be **Object** data types that contain many values called **properties**.
+
+```javascript
+let tree = {
+    height: 10,
+    color: 'green',
+    grow(){
+        this.height += 2;
+    }
+};
+```
+<sub><sup>what the fuck am i reading</sup></sub>
+
+### Computed Property Names
+
+Using the square bracket notation [], we can use an expression for a property name such as concatenating strings. 
+
+#### Example 1
+```javascript
+let prop = 'name';
+let id = '1234';
+let mobile = '08923';
+
+let user = {
+    [prop]:'Jack',
+    [`user_${id}`]: `${mobile}`,
+};
+```
+results to: `{ name: "Jack", user_1234: "08923" }`
+
+#### Example 2
+```javascript
+var i = 0;
+var a = {
+    ['foo' + ++i]: i,
+    ['foo' + ++i]: i,
+    ['foo' + ++i]: i
+};
+```
+
+results to `{ foo1: 1, foo2: 2, foo3: 3 }`
+
+### Object.assign()
+
+`Object.assign()` allows us to combine multiple sources into one target to create a single new object.
+
+```javascript
+let person = {
+    name: 'Jack',
+    age: 18,
+    sex: 'male'
+};
+
+let student = {
+    name:'Bob',
+    age:20,
+    xp:'2'
+};
+
+let newStudent = Object.assign({}, person, student);
+```
+
+results to `{ name: "Bob", age: 20, sex: "male", xp: "2" }`
+
+The first param is the **target object** you want to apply new properties to. Every parameter afterwards will be used as **sources** for the target. Since *student* is the 2nd parameter, it overwrites the *name* property.
+
+This is useful because using the assignment operators `=` on object just assigns the references.
+
+```javascript
+let person = {name:'Jack', age:18};
+
+let newPerson = person; // newPerson references person
+newPerson.name = 'Bob';
+
+console.log(person.name); //Bob
+console.log(newPerson.name); //Bob
+```
+
+To avoid this (mutations), use `Object.assign()` to create a new object.
+```javascript
+let person = {
+    name: 'Jack',
+    age: 18
+};
+
+let newPerson = Object.assign({}, person);
+newPerson.name = 'Bob';
+
+console.log(person.name); //Jack
+console.log(newPerson.name); //Bob
+```
+
+## Destructuring
+
+**destructuring** assignent syntax makes it possible to unpack values from arrays, or proprties from objects into distinct variables.
+
+### Array Destructuring
+
+```javascript
+let arr = ['1','2','3'];
+let [one, two, three] = arr;
+
+console.log(one); //1
+console.log(two); //2
+console.log(three); //3
+```
+
+we can also use a destructure array returned by a function
+
+```javascript
+let a = () => {
+    return [1,3,2];
+}
+
+let [one, ,two] = a();
+```
+array destructuring syntax also simplifies assinment and swapping values:
+```javascript
+[c, d] = [d, c]; // swaps
+```
+
+### Object Destructuring
+
+```javascript
+let obj = {h:100, s: true};
+let {h,s} = obj;
+
+console.log(h); //100
+console.log(s); //true
+```
+
+```javascript
+let a, b;
+({a, b} = {a: 'Hello ', b: 'World'});
+
+console.log(a + b); // Hello World
+```
+
+> the () with ; at the end are **mandatory** only when destructring without a declaration. However, you can do it like this:
+
+```javascript
+let {a,b} = {a:'Hello ', b: 'World'};
+console.log(a + b); // Hello World
+```
+
+You can also assign the object to new variable names.
+
+```javascript
+var o = {h:42, s:true};
+var {h:foo, s: bar} = 0;
+
+console.log(h); // Error
+console.log(foo); // 42
+```
+<sub><sup>._. what the fuck am i reading seriously</sup></sub>
+
