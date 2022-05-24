@@ -195,3 +195,5 @@ function validate() {
 |![1](.imgs/formvalidation-1.png)|![2](.imgs/formvalidation-2.png)|![3](.imgs/formvalidation-3.png)|
 |-|-|-|
 |**initial**: a GET request is submitted<br>|onSubmit with unequal values:<br>**no http request is made** and <br><sub><sup>`console.log("passwords don't match")`</sub></sub>|equal values were submitted so<br>a POST request was sent thus:<br> <sub><sup>`echo "post"`</sup></sub>|
+
+> `<form>.onsubmit` is used to check whether to submit or not. If it returns true, then it submits. Otherwise, no. 
