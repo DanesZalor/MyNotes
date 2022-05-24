@@ -356,3 +356,12 @@ console.log(foo); // 42
 ```
 <sub><sup>._. what the fuck am i reading seriously</sup></sub>
 
+Finally, you can assign **default value** to variables, in case the value unpacked from the object is undefined. For example:
+
+```javascript
+var obj = {id:42, name: "Jack"};
+let {id = 10, age = 20} = obj;
+
+console.log(id); // 42
+console.log(age); // 20
+```
