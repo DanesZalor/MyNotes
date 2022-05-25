@@ -365,3 +365,196 @@ let {id = 10, age = 20} = obj;
 console.log(id); // 42
 console.log(age); // 20
 ```
+
+## Rest Parameters
+
+prior to ES6, if we wanted to pass a variable number of arguements to a function, we could use the **arguement** object which is an array-like object to access the parameters passed to the function
+```javascript
+function containsAll(arr){
+    for(let k=1; k<arguements.length; k++){
+        let num = arguements[k];
+        if(arr.indexOf(num) === -1)
+            return false;
+    }
+    return true;
+}
+
+let x = [2,4,6,7];
+console.log(containsAll(x, 2,4,6,7)); // true
+console.log(containsAll(x, 2,5,6,7)); // false
+```
+
+> we can pass any number of arguements to the function and access it using the **arguements** object. <sub><sup>WHO THE FUCK THOUGHT THIS WAS A GOOD IDEA????</sup></sub>
+
+ES6 provies a more readable syntax to do the same job using the **rest parameter**.
+
+```javascript
+function containsAll(arr, ...nums){
+    for(let num of nums){
+        if(arr.indexOf(num) === -1)
+            return false;
+    }
+    return true;
+}
+```
+
+> if there are no extra arguments, the rest parameter will simply be an empty array; but it will never be undefined.
+
+
+## Spread Operator
+
+it is common to pass the elements of an array as arguments to a function
+
+```javascript
+function myFunction(w,x,y,z){
+    console.log(w + x + y + z);
+}
+
+var args = [1,2,3];
+myFunction.apply(null, args.concat(4));
+```
+
+ES6 provides an easy way to do the example above with **spread operators**.
+
+```javascript
+const myFunction = (w, x, y, z){
+    console.log(w + x + y + z);
+};
+
+let args = [1,2,3];
+myFunction(...args, 4);
+```
+
+one good Example is:
+```javascript
+var dateFields = [1970,0,1];
+var date = new Date(...daetFields);
+console.log(date);
+```
+
+## ES6 Classes
+
+ES6 classes are effectively just syntactic sugar on top of Javascript standard prototype-based inheritance system. It has a shorthand that does nto require the keyword **function**.
+
+```javascript
+class Rectangle {
+    constructor(height, width){
+        this.height = height;
+        this.width = width;
+    }
+
+    get area(){
+        return this.calcArea();
+    }
+
+    calcArea(){
+        return this.height * this.width;
+    }
+
+    static calcArea(height, width){
+        return height * width;
+    }
+}
+
+const square = new Rectangle(5,5);
+console.log(square.area); // 25
+console.log(Rectangle.calcArea(4,5)); // 20
+```
+### Inheritance
+```javascript
+class Animal {
+    constructor(name){
+        this.name = name;
+    }
+
+    speak(){
+        console.log(`${this.name} makes a noise.`);
+    }
+}
+
+class Dog extends Animal {
+    speak(){
+        super.speak;
+        console.log(`${this.name} barks.`);
+    }
+}
+
+let dog = new Dog('Rex');
+dog.speak();
+```
+
+> use **`super`** to access the base class properties/methods.
+
+## Map & Set 
+
+**Map** object can be used to hold **key/value** pairs. A key or value in a map can be anything (objects and primitive values).
+
+An **Object** is similar to **Map** but:
+- the keys can be any type including functions, objects, or primitive.
+- you can get the size of a Map.
+- you can directly iterate over a Map.
+- performance of the Map is better in scenarios involving frequent addition and removal of key/value pairs.
+
+```javascript
+let map = new Map([['k1', 'v1'], ['k2', 'v2']]);
+
+console.log(map.size); // 2
+```
+
+|Methods||
+|-|-|
+|`set(key,value)`| adds a specified key/value pair to the map. If the specified key already exists, it is replaced with the new one|
+|`get(key)`|gets the value corresponding to a specified key|
+|`has(key)`|returns true if key exists|
+|`delete(key)`|deletes the key/value pair|
+|`clear()`|removes all key/value pairs|
+|`keys()`|returns an iterator of keys in the map for each element|
+|`values()`|returns an iterator of values in the map for each element|
+|`entries()`|returns an iterator of `array[key,value]` in the map for each element|
+
+example:
+```javascript
+let map = new Map();
+
+map.set('k1', 'v1').set('k2', 'v2');
+
+console.log(map.get('k1')); // v1
+console.log(map.has('k2')); // true
+
+for (ley kv of map.entries())
+    console.log(`${kv[0]} : ${kv[1]}`);
+```
+
+> map supports different data types <br>
+> 1 and "1" are two different key/values.
+
+A **Set** object can be used to hold **unique** values (no repetitions). A value can be anything (objects and primitive).
+
+```javascript
+let set = new Set([1,2,4,2,59,4,9,1]);
+
+set.size; // 5
+```
+
+|Methods||
+|-|-|
+|`add(value)`|adds a new element|
+|`delete(value)`|deletes an element|
+|`has(value)`|returns true if value exists|
+|`clear()`|clears the set|
+|`values()`|returns an iterator of the set values|
+
+example
+```javascript
+let set = new Set();
+
+set.add(5).add(9).add(59).add(9);
+
+console.log(set.has(9)); //true
+
+for(let v of set.values())
+    console.log(v);
+```
+> **Set** supports different data types like **Map**<br>
+> `NaN` and `undefined` can also be stored in the Set
+<sub><sup>ok wtf why?</sup></sub>
