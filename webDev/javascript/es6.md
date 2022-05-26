@@ -558,3 +558,72 @@ for(let v of set.values())
 > **Set** supports different data types like **Map**<br>
 > `NaN` and `undefined` can also be stored in the Set
 <sub><sup>ok wtf why?</sup></sub>
+
+## Promises
+
+*Producing code* is code that can take some time. <br>
+*Consuming code* is code that must wait for the result.<br>
+A Promise is an object that links both.
+
+```javascript
+let myPromise = new Promise(function(resolve, reject){
+    // "producing code" (may take some time) 
+
+    resolve(); // when successful
+    reject();  // when error
+});
+
+// "consuming code" (must wait for a fulfilled Promise)
+myPromise.then(
+    function(value){ /*code if successful*/},
+    function(error){ /*code if error*/}
+);
+```
+
+Promise object can be:
+- pending
+- fulfilled
+- rejected
+
+The promise supports two properties: **state** and **result**.
+
+Wile a promise is *pending*, the result is undefined.<br>
+When a promise is *fulfilled*, the result is a value.<br>
+When a promise is *rejected*, the result is an error object.
+
+#### example
+
+```javascript
+let myPromise = new Promise(function(resolve, reject){
+    let x = 0;
+
+    if(x === 0) resolve("OK");
+    else reject("Error");
+});
+
+myPromise.then(
+    function(value){console.log(value);},
+    function(error){console.log("ERROR! " + error);}
+)
+```
+You can use promises to handle resolve and reject. Like if you're accessing an API to retrieve some data.
+
+
+```javascript
+let myPromise = new Promise(
+  function(resolve, reject){
+    setTimeout(function(){
+        resolve("fuck NATO");
+    }, 3000);
+});
+
+myPromise.then(function(value){
+    console.log(value);   
+})
+```
+
+> prints `"fuck Nato"` after 3 seconds.
+
+Sources
+- [Promise Object](https://www.w3schools.com/js/js_promise.asp)
+- [Async-await](https://www.w3schools.com/js/js_async.asp)
