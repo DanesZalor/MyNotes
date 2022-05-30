@@ -431,6 +431,26 @@ var dateFields = [1970,0,1];
 var date = new Date(...daetFields);
 console.log(date);
 ```
+Another example:
+```javascript
+const vec2 = function (x, y) {
+    this.x = x;
+    this.y = y;
+    this.toString = () => {
+        return `vec2(${this.x},${this.y})`;
+    }
+}
+
+var v3 = {
+    ...new vec2(4,5),
+    z: 10,
+    toString: function() {
+        return `vec3(${this.x},${this.y},${this.z})`;
+    }
+}
+
+v3.toString(); // vec3(4,5,10);
+```
 
 ## ES6 Classes
 
@@ -627,3 +647,30 @@ myPromise.then(function(value){
 Sources
 - [Promise Object](https://www.w3schools.com/js/js_promise.asp)
 - [Async-await](https://www.w3schools.com/js/js_async.asp)
+
+## Async
+
+async and await make promises easier to write.<br>
+**async** makes a function return a promise.<br>
+**await** makes a function wait for a promise.<br>
+
+
+>```javascript
+>async function myFunc(){
+>   return "Hello";
+>}
+>```
+> is the same as:
+>```javascript
+>function MyFunction(){
+>   return Promise.resolve("Hello");
+>}
+>```
+
+Then you can use the promise like:
+>```javascript
+>myFunction().then(
+>   function(value){ /*code if successful*/}
+>   function(error){ /*code if error*/ }
+>);
+>```
