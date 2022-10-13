@@ -71,3 +71,52 @@ const vec3 = function (x, y, z) {
 // static property
 vec3.staticvar = "Estoy estatico";
 ```
+
+## IDEA
+Use this base class as a **Node** to make subclasses of it as components like in React:
+```javascript
+/**
+ * 
+ * @param {str} tagName name of html tag like 'div'|'p'|'amogus' 
+ * @param {object} properties object with properties 
+ * @returns HTMLElement with the **properties**  assigned to it
+ */
+const DOMNode = function (tagName, properties = {}) {
+    let dO = document.createElement(tagName, { prototype: HTMLElement.prototype });
+    Object.assign(dO, properties);
+    return dO;
+}
+
+export { DOMNode };
+```
+
+then you can use it like this:
+```javascript
+import { DOMNode } from "./jsClass/DOMNode.js";
+
+var dn = new DOMNode('p', { innerHTML: 'sex', onclick: () => { alert('DO NOT CLICK'); } });
+document.getElementById('root').appendChild(dn);
+```
+
+## Function override
+say we wanna override a function but use it's base implementation like:
+```C#
+virtual void func(){
+    Console.Write("base func");
+}
+
+override void func(){
+    base.func();
+    Console.Write("new func");
+}
+```
+
+We do this:
+```javascript
+let baseFunc = THIS.func;
+THIS.func = function () {
+    baseFunc();
+    // additional code
+    console.log("call new func with baseFunc");
+}
+```

@@ -1,0 +1,92 @@
+# C# .NET Quick Refresher
+
+### Quickstart
+create a new **dotnet console** project
+```bash
+dotnet new console -n dirname
+```
+
+#### Hello World
+```C#
+public class Test{
+
+    public static void Main(string[] args){
+        Console.WriteLine("せかいこんいちは");
+    }
+}
+```
+
+#### Run the project
+```bash
+dotnet run
+```
+
+## Functions
+
+### Default arguements
+```C#
+void F1(int x=1, float y=3.1f){
+    Console.WriteLine(
+        String.Format("x={0} y={1}", x,y)
+    );
+}
+
+...
+F1();
+F1(y:6.9f);
+```
+Outputs
+```bash
+x=1 y=3.1
+x=1 y=6.9
+```
+
+
+## Classes
+
+### fields and properties
+
+```C#
+public class Vector2{
+
+    protected float _x, _y;
+
+    public float X {
+        get => _x;
+        set => _x = value;
+    }
+
+    public float Y {
+        get => _y;
+        set => _y = value;
+    }
+
+    public Vector2(float x=0f, float y=0f){
+        this.X = x;
+        this.Y = y;
+    }
+}
+```
+`_x` is a field while `X` is a property.
+
+### Inheritance
+```C#
+/**
+ * Vector2 but Y will always be >= 0 
+*/
+public class UpVector2 : Vector2 {
+
+    public override float Y{
+        get => this._y;
+        set {
+            if(value<0) 
+                Console.WriteLine("Warning! UpVector2.Y is always >= 0");
+            this._y = Math.Max(0,value);
+        }
+    }
+
+    public UpVector2(float x=0, float y=0) : base(x,y) {}
+
+}
+```
+
