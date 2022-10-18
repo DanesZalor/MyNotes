@@ -366,8 +366,27 @@ int? b = null;
 b.HasValue; // returns false
 ```
 
+**Null coalescing operator** - 
+?? for a default value if the nullable variable is null
+```C#
+int b? = null;
+b ?? 10; // returns 10
+```
+
 ---
 
 ## Namespace
 by convention, classes in a folder should be the same namespace and the namespace name being the same as the folder name. VS automatically does this if you transfer a .cs file into a folder
 
+## Garbage Collection
+
+```C#
+object o1 = new object();
+```
+
+`o1` is just a reference that points somewhere in the heap for the object's value. the reference is actually stored in the stack. But as you instantiate objects over and over, there might be some objects in the heap that isn't pointed by any reference in the stack. This is trouble some because it will fill up the heap memory.
+
+Not to worry because C# has automatic Garbage collection system which is part of the CLR (Common Language Runtime. Despite being automatic though, you can invoke it from code via `GC.Collect()` though often not required
+
+
+---

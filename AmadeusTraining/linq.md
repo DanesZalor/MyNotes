@@ -64,4 +64,23 @@ Jam ave.=76.66666666666667
 Jim ave.=73.33333333333333
 ```
 
----
+<br>
+
+# C# Linq <sub><sup>from course</sub></sup>
+
+SQL-like syntax in C# (and VB). It allows us to query `IEnumerable<T>` or those that implements it. We can also Query external data sources (xml, database, JSON, csv, etc)
+
+|Common `IEnumerable`|
+|-|
+|array|
+|string|
+|List<T>|
+|HashSet<T>, Dictionary<Tkey,Tval>, etc|
+
+|SQL|LINQ|Method|
+|-|-|-|
+|`SELECT * FROM Products`|`from prod in Products select prod`|`Products`<br>`.Select(prod => prod)`|
+|`SELECT Name FROM Products`|`from prod in Products select prod.Name`|`Products`<br>`.Select(prod => prod.Name)`
+|`SELECT * FROM Products WHERE ListPrice > 10`|`from prod in Products where prod.ListPrice > 10 select prod`|`Products`<br>`.Where(prod=>prod.ListPrice>10)`<br>`.Select(prod => prod)`|
+
+
