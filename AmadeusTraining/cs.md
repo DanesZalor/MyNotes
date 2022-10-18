@@ -278,3 +278,96 @@ int ADD(int a, int b) => a + b;
 
 ADD(1,2); // returns 3
 ```
+
+---
+
+## Common Type System
+
+- enum
+- struct
+- class
+- interface
+- delegate
+
+**Value types** - enum and struct. Contained in the stack
+
+**Reference types** - class, interface, delegate. 
+
+## Enums
+
+```C#
+enum EmployeeType{
+    Sales, // 0 
+    Manager,  // 1
+    Research, // 2
+    StoreManager // 3
+}
+// automatically assigned values
+
+enum StoreType
+{
+    PieCorner = 10,
+    Seating = 20,
+    FullPieRestaurant = 100,
+    Undefined = 99
+}
+// user defined values
+```
+
+## Struct
+
+```C#
+struct Employee
+{
+    public string Name;
+    public string Department;
+    public void Greet() {
+        Console.WriteLine($"Hello I'm {this.Name} from {this.Department}");
+    }
+}
+...
+
+Employee emp = new Employee(){
+    Name="Bob", Department = "Mall Cop"
+};
+
+emp.Name = "Paul Blart";
+emp.Greet();
+```
+
+## Class
+Blue print of an object.
+
+something about properties and fields
+
+
+Is a reference type
+```C#
+class vec2 {
+    public float x, y;
+    
+    public vec2(float x, float y) { this.x = x; this.y = y; }
+
+    public override string ToString() =>  $"({x},{y})";
+    
+}
+
+...
+vec2 v1 = new vec2(2, 3);
+vec2 v2 = v1;
+
+v2.x = 500;
+Console.WriteLine(v1); // (500,3)
+```
+
+### Nullable
+```C#
+int? b = null;
+b.HasValue; // returns false
+```
+
+---
+
+## Namespace
+by convention, classes in a folder should be the same namespace and the namespace name being the same as the folder name. VS automatically does this if you transfer a .cs file into a folder
+
