@@ -107,7 +107,7 @@ a method must be **abstract** or **virtual** in order to be **override**
 **sealed** - classes that cannot be derived<br>
 **abstract** - classes that cannot be instantiated so it must be derived in order to instantiate
 
-## Interfaces
+# Interfaces
 
 define a contract that must be implemented by classes that implements it
 
@@ -180,5 +180,17 @@ public class Manager : Employee { ... }
 
 ...
 IEmployee e1 = new Manager();
-e1.Work(); // perfectly valid
+e1.Work(); // valid
+e1.AttendManagementMeeting(); // error: can only call IEmployee methods
 ```
+<br>
+
+`IEnumerable<T>` interface
+allows the collection to act as a data source
+
+`T[]` and `List<T>` both have almost the same set of features and that's because they both implement `IList<T>` which provides functionalities such as being indexable, enumerable, etc.
+
+> It's often preferred to use interfaces instead of concrete types.
+
+
+

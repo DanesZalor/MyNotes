@@ -10,6 +10,7 @@
 
 **Build Configuration** - gathering of properties to build your project, relating to compiler options and other stuff. You could have one configuration for **release** and one for **debug**. Use them first for now.
 
+
 <br>
 
 ## Debugging 
@@ -53,6 +54,7 @@ lets you watch your code execute
 
 **Snippets** - helps with autocompleting common code blocks like if statements and for loops.
 
+> C# being statically typed may require you to write more code but you don't have to write all that code yourself. Visual Studio offers a lot of tools to help you type and it's easier for a piece of software to help you with it since it's statically typed.
 
 ---
 
@@ -71,3 +73,7 @@ You can right-click on a project and press `Manage NuGet Packages...` <br>
 Dependency libraries are NOT in your project or solution folder. They are stored somewhere in `C:/Users/user/.nuget/packages`
 
 You can right click on your solution and press `Manage NuGet packages for Solution...` to see all packages. You can click on the `Consolidate` tab to view the packages that are depended by two or more projects in your solution but with different versions.
+
+### Object Browser
+
+no fckin way you can memorize all that classes and types amirite? go to `View -> Object Browser`
