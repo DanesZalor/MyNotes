@@ -193,4 +193,28 @@ allows the collection to act as a data source
 > It's often preferred to use interfaces instead of concrete types.
 
 
+----
+# oop <sub><sub><sup><sup>(from pluralsight course)
 
+an approach to designing and building apps by treating the problem like they consist of objects
+
+- identify class
+- separate responsibilities
+- establish relationships between objects
+- leverage use
+
+> ### Abstraction
+> process of simplifying things by ignoring irrelevant details to the problem and focusing on waht is important
+> ### Encapsulation
+> hide or encapsulate implementation details within a class; hiding complexity. Like hiding some properties or methods that does not concern other classes and just exposing those that are needed
+
+**Common App Layers**
+- **UI Layer** - where the user interacts 
+- **Business Logic** - layer where to perform business operations
+- **Data Access** - retrieve data from a repository
+- **Common Code/Lib** - useful code project-wide
+
+### Terminologies
+- **Method Signature** - method name and data types of parameters
+- **Overloading** - having multiple functions w the same name but different parameter/s
+- **Contract** - interfaces and rules and shiet
