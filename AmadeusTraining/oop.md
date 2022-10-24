@@ -218,3 +218,31 @@ an approach to designing and building apps by treating the problem like they con
 - **Method Signature** - method name and data types of parameters
 - **Overloading** - having multiple functions w the same name but different parameter/s
 - **Contract** - interfaces and rules and shiet
+
+
+### Identifying classes
+- represent business entities
+- define properties (data)
+- define methods (actions/behavior)
+
+### Separating Responsibilities
+an app is decomposed into classes with minimal overlap. each class is responsible for a separate concern
+> **YAGNI** - "*You aren't going to need it*". Principle that focuses on what is important for today. 
+- minimizes coupling<br>
+    *coupling* is a degree to which classes are dependent on other classes or external resources. Ideally should minimize a class' dependency. 
+- maximizes cohesion<br>
+    *cohesion* is a measure of how related everything in a class is to the purpose of the class
+
+Classes with both low coupling and high cohesion are easier to understand, test, maintain and extend.
+
+### Establishing Relationships
+- define how objects work together to perform the operation of the application
+- types of relationships
+    - **Collaboration** ("*uses a*") - one object uses another object to establish a process
+    - For example; An `API` that *uses a* `SQLRepository`. The `ResourceRepository` may be used by other classes and the `API` can exist without an `SQLRepository`  
+    - **Composition** ("*has a*") 
+        - An object is composed of other objects
+        -  two categories:
+        - **Aggregation** - when an object is composed by another object exists outside of the relationship. For example; a `Car` and it's `Wheel[]`. Ideally, A Wheel
+        - **Composition** - when an object is composed of another object but that object can't exist without the other. For example; A `Bird` and it's `Wing[]`
+        > medjo bad example go find something man
