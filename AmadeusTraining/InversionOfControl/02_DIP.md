@@ -65,3 +65,7 @@ class CustomerBusinessLogic{
 ```
 
 Now both `CustomerBusinessLogic` and `CustomerDataAccess` communicate with each other through abstraction. 
+
+The `CustomerBusinessLogic` does not directly depend on the `DataAccess`, by accessing it through the interface.
+
+Still, we have not yet achieved fully loosely coupled classes because `CustomerBusinessLogic` class includes a factory class to get the reference of the `ICustomerDataAccess`. 
