@@ -35,3 +35,5 @@ git config --list // print the config
 
 ## Git repository hosting services
 are online servers that offer git repository hosting services (lmao) like git and bitbucket
+
+kanye west is right
