@@ -19,3 +19,19 @@ is a Version Control System
     - Files in this state have been modified and added to be staged in the next commit snapshot
 - Staging Area 
     - where the changes are stored
+
+
+## CLI Commands
+```
+pwd -
+cd -
+ls -
+mkdir -
+
+git config --global // for all git repo in your machine
+git config // for only the current
+git config --list // print the config
+```
+
+## Git repository hosting services
+are online servers that offer git repository hosting services (lmao) like git and bitbucket
