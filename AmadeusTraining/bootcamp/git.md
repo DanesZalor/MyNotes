@@ -37,4 +37,3 @@ git config --list // print the config
 are online servers that offer git repository hosting services (lmao) like git and bitbucket
 
 kanye west is right
-jews
