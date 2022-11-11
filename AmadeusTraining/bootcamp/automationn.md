@@ -54,7 +54,7 @@ Iteration with AGILE
 
 ### Indicators for good automated testing
 - Decisive - contains all info to automatically determine success/failure
-- Accurate - results 
+- Accurate - results https://dev.azure.com/Navitaire/
 - Complete - performs all activities and data necessary
 - Repeatable - deterministics and always gives the same results
 - Isolated - not affected by other tests
