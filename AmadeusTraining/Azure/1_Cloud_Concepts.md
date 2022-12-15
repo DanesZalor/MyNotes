@@ -1,3 +1,4 @@
+# Cloud Concepts
 **Cloud computing** is the delivery of computing services over the internet which includes common IT infrastructure such as:
 - virtual machines
 - storage
@@ -54,8 +55,11 @@ There are two types of expenses:
 |Typically one-time, up-front expenditure to purchase or secure tangible resource.|Spending money on services or products over time.|
 |e.g. Building a data center, new building, parking lot|e.g. Renting, leasing, singing up for cloud services|
 
-**Consumption-based model**
+**Consumption-based model** - you don't pay for the physical infrastructure, electricity, security, etc.
 - No upfront costs.
 - No need to purchase and manage costly infrastructure that users might not use to its fullest potential.
 - The ability to pay for more resources when they're needed.
 - The ability to stop paying for resources that are no longer needed.
+
+Cloud computing is a way to rent compute power and storage from someone else's data center. *You're billed only for what you use.*
+
