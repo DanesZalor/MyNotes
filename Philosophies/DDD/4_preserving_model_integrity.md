@@ -6,7 +6,7 @@ When the design of the model evolves partially independently, we are facing the 
 
 ![](.imgs/preserving_model_integrity.png)
 
-## Bounded Context
+## **Bounded Context**
 
 Each model has a context. When we deal with a single model, the context is implicit.
 
@@ -26,3 +26,15 @@ We want to make a reporting system to generate reports that will monitor the sta
 At the start, we create one model which covers the entire domain of e-commerce. But upon further consideration, we discover that the e-shop app is not really related to the reporting one. They have separate concern, operate with different concpets, and may need to use different technologies. The only common ground is the customer and merchandise data which both apps need to access.
 
 It is recommended to create a separate model for each domain, one for e-commerce, and one for reporting. they can both evolve freely without much concern about each other, and become separate applications. We just need to make sure that the interface between them works well.
+
+## **Continuous Integration**
+
+When a number of people are working on the same Bounded Context, there is a strong tendency for the model to fragment. Breaking down the system into ever-smaller contexts eventually loses a valuable level of integration and coherency. 
+
+We need to communicate with the team to make sure we all understand the role played by each element in the model. If one does not understand the relationship between objects, they may modify the code in such a way that comes in contradiction with the original intent. One member of the team might add code which duplicates existing code without knowing it, or they might add duplicate code instead of changing the current code, afraid of breaking existing functionality.
+
+We must remember that a model is not fully defined from the beginning. It is created, then **it evolves continuously based on new insight** in the domain and feedback from the development process. New concepts may enter the model, and new elements are added to the code.
+
+Continuous Integration is base don integration of concepts in the model, then finding its way into the implementation where it is tested.
+
+## **Context Map**
