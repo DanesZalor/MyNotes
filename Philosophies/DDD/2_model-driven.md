@@ -77,3 +77,7 @@ Factories are used to encapsulate the knowledge necessary for object creation, a
 A **Factory method** is an object method which contains and hides knowledge necessary to create another object. 
 
 ## **Repositories**
+
+A constructor or Factory takes care of object creation. The entire prupose of creating objects is to use them. While the Repository takes care of the objects lifespan. The Repository may store references to some of the objects. When an object is created, it may be saved in the Repository, and retrieved from there to be used later. If the client requested an object from the Repository, and it does not have it, it may get it from the storage. Either way, the repository acts as a storage place for globally accessible objects.
+
+The Repository may also include a **Strategy**. It may access one persistence storage or another based on the specified Strategy. It may use different storage locations for different type of objects. The overall effect is that the domain model is decoupled from the need of storing objects or their references and accessing the underlying persistence infrastructure.

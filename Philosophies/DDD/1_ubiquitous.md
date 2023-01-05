@@ -32,3 +32,5 @@ Here is a hypothetical dialog between a software developer and a domain expert i
 
 .... and so on
 
+Notice how the team is slowly creating a language made up by the words in bold face. Also note how the language changes the model.
+
